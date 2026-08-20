@@ -1,0 +1,16 @@
+# Nova Split
+
+> Nova Split is an AI SEO Generator. Starting from a product brief, it
+> performs deep research, creates target-audience persona profiles, and
+> produces SEO article directions tailored to a selected platform, audience,
+> and business goal.
+
+## Language routes
+
+- Traditional Chinese (default): /zh/
+- English: /en/
+
+## Discovery
+
+- /sitemap.xml — full list of all pages
+- /robots.txt — crawl policy

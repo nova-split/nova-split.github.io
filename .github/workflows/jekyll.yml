@@ -1,0 +1,34 @@
+name: Build Jekyll site
+on:
+ push:
+   branches: ["main"]
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+        with:
+          fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
+      - name: Build Jekyll via Docker
+        run: |
+          docker build -t jekyll-build .
+          docker run --rm -v ${{ github.workspace }}:/site -w /site jekyll-build bash -c "cd /site && bundle install && bundle exec jekyll build"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@main
+        with:
+          path: _site
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@main
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}

@@ -1,0 +1,29 @@
+title: Nova Split — AI SEO Generator
+description: >-
+  Nova Split turns a product brief into research-backed SEO content for the
+  audience, platform, and goal you choose.
+
+url: "https://nova-split.github.io"
+baseurl: ""
+repository: nova-split/nova-split.github.io
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+kramdown:
+  parse_block_html: true
+
+# Not part of the published site — build tooling and repo docs.
+exclude:
+  - Dockerfile
+  - Gemfile
+  - Gemfile.lock
+  - .dockerignore
+  - docker-compose.yml
+  - README.md
+  - CLAUDE.md
+  - vendor
+  - node_modules
+  - .claude
+  - .tmp

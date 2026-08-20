@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1a2b45">
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {%- if page.extra_css %}
+  <link rel="stylesheet" href="{{ '/assets/css/' | append: page.extra_css | append: '.css' | relative_url }}">
+  {%- endif %}
+  {% seo %}
+</head>
+<body>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="{% if page.lang == 'zh-Hant' %}{{ '/zh/' | relative_url }}{% else %}{{ '/en/' | relative_url }}{% endif %}">Nova Split</a>
+    <nav>
+      {%- assign p = page.url %}
+      {% if page.lang == 'zh-Hant' %}
+      <a href="{{ '/zh/' | relative_url }}"{% if p == '/zh/' %} aria-current="page"{% endif %}>首頁</a>
+      <a href="{{ '/zh/#workflow' | relative_url }}">流程</a>
+      <a href="{{ '/zh/#generator' | relative_url }}">生成器</a>
+      {% else %}
+      <a href="{{ '/en/' | relative_url }}"{% if p == '/en/' %} aria-current="page"{% endif %}>Home</a>
+      <a href="{{ '/en/#workflow' | relative_url }}">Workflow</a>
+      <a href="{{ '/en/#generator' | relative_url }}">Generator</a>
+      {% endif %}
+      {% if page.lang_url %}<a class="lang-link" data-language="{% if page.lang == 'zh-Hant' %}en{% else %}zh{% endif %}" href="{{ page.lang_url | relative_url }}" lang="{% if page.lang == 'zh-Hant' %}en{% else %}zh-Hant{% endif %}">{% if page.lang == 'zh-Hant' %}EN{% else %}中文{% endif %}</a>{% endif %}
+    </nav>
+  </div>
+</header>
+
+{{ content }}
+
+<footer class="site-footer">
+  <div class="bar">
+    <span class="brand-name">Nova Split</span>
+    <span>&copy; {{ 'now' | date: "%Y" }} · {% if page.lang == 'zh-Hant' %}AI SEO 內容工作流程{% else %}AI SEO content workflow{% endif %}</span>
+    <a href="https://github.com/nova-split" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>document.querySelectorAll('[data-language]').forEach(function (link) { link.addEventListener('click', function () { localStorage.setItem('nova-split-language', link.dataset.language); }); });</script>
+
+</body>
+</html>

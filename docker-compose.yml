@@ -1,0 +1,17 @@
+services:
+  site:
+    build:
+      context: .
+    working_dir: /site
+    ports:
+      - "127.0.0.1:14001:4000"
+    volumes:
+      - ./:/site
+      - bundle_cache:/usr/local/bundle
+    command: >
+      bash -c "bundle install && bundle exec jekyll serve --host 0.0.0.0 --force_polling"
+    tty: true
+    stdin_open: true
+
+volumes:
+  bundle_cache:

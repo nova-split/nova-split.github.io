@@ -1,0 +1,8 @@
+_site/
+.jekyll-cache/
+vendor/
+Gemfile.lock
+
+.tmp/
+.browser/
+.claude
