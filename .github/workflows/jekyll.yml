@@ -13,15 +13,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
         with:
+          submodules: 'recursive'  # This will recursively clone submodules
           fetch-depth: 0  # Fetch all history for .GitInfo and .Lastmod
-      - name: Build Jekyll via Docker
-        run: |
-          docker build -t jekyll-build .
-          docker run --rm -v ${{ github.workspace }}:/site -w /site jekyll-build bash -c "cd /site && bundle install && bundle exec jekyll build"
+      - name: Setup Pages
+        uses: actions/configure-pages@main
+      - name: Build
+        uses: actions/jekyll-build-pages@main
       - name: Upload artifact
         uses: actions/upload-pages-artifact@main
-        with:
-          path: _site
   deploy:
     runs-on: ubuntu-latest
     needs: build
