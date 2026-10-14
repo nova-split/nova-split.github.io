@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星河裂變｜預約線上說明會</title>
+<meta name="description" content="留下資料並選擇想參加的線上說明會場次，實際看星河裂變怎麼把品牌資料、內容、排程和交付接起來。">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../favicon.ico">
+<link rel="stylesheet" href="../assets/style.css">
+<!-- GA4 / Meta Pixel 追蹤碼貼在這裡（報名頁） -->
+</head>
+<body class="booking-page">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" data-back href="#"><img src="../assets/logo.svg" alt="" width="36" height="34">星河<span>裂變</span></a>
+    <a class="btn ghost" data-back href="#">← 回到介紹</a>
+  </div>
+</header>
+
+<section class="soft booking">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow" data-copy="eyebrow">預約線上說明會</span>
+      <h1 data-copy="title">留下資料，選一個你方便的場次</h1>
+      <p class="lead" data-copy="lead">每場 90 分鐘，實際走過產製、審稿與交付流程，預購優惠也會在說明會一併介紹</p>
+    </div>
+
+    <form id="booking-form" class="booking-form" novalidate>
+      <input type="hidden" name="intent">
+      <input type="hidden" name="from">
+      <div class="hp" aria-hidden="true">
+        <label>網站 <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <fieldset>
+        <legend><span>01</span>基本資料</legend>
+        <div class="fields">
+          <label class="field">
+            <span>姓名<i>*</i></span>
+            <input type="text" name="姓名" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span>公司／品牌名稱<i>*</i></span>
+            <input type="text" name="公司／品牌名稱" autocomplete="organization" required>
+          </label>
+          <label class="field">
+            <span>職稱</span>
+            <input type="text" name="職稱" autocomplete="organization-title">
+          </label>
+          <label class="field">
+            <span>Email<i>*</i></span>
+            <input type="email" name="Email" autocomplete="email" required>
+          </label>
+          <label class="field">
+            <span>手機<i>*</i></span>
+            <input type="tel" name="手機" autocomplete="tel" placeholder="0912-345-678" pattern="[0-9+\-\s\(\)]{8,20}" required>
+          </label>
+          <label class="field">
+            <span>LINE ID<em>選填</em></span>
+            <input type="text" name="LINE ID">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>02</span>了解你的需求</legend>
+        <div class="fields">
+          <label class="field">
+            <span>目前經營型態<i>*</i></span>
+            <select name="經營型態" required>
+              <option value="">請選擇</option>
+              <option>一人公司</option>
+              <option>2–5 人團隊</option>
+              <option>6 人以上代操公司</option>
+              <option>品牌內部行銷</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>目前管理幾個品牌</span>
+            <select name="管理品牌數">
+              <option value="">請選擇</option>
+              <option>1–3 個</option>
+              <option>4–8 個</option>
+              <option>9 個以上</option>
+            </select>
+          </label>
+          <div class="field full">
+            <span>最想解決的問題<em>可複選</em></span>
+            <div class="options">
+              <label class="option"><input type="checkbox" name="最想解決的問題" value="產文太慢"><span>產文太慢</span></label>
+              <label class="option"><input type="checkbox" name="最想解決的問題" value="審稿來回太多"><span>審稿來回太多</span></label>
+              <label class="option"><input type="checkbox" name="最想解決的問題" value="交付流程卡在自己身上"><span>交付流程卡在自己身上</span></label>
+              <label class="option"><input type="checkbox" name="最想解決的問題" value="想接更多客戶"><span>想接更多客戶</span></label>
+              <label class="option"><input type="checkbox" name="最想解決的問題" value="外包預算太高"><span>外包預算太高</span></label>
+            </div>
+          </div>
+          <label class="field">
+            <span>從哪裡知道我們</span>
+            <select name="從哪裡知道我們">
+              <option value="">請選擇</option>
+              <option>Facebook</option>
+              <option>Instagram</option>
+              <option>朋友推薦</option>
+              <option>其他</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="session-group" data-session-group>
+        <legend data-copy="sessionLegend"><span>03</span>想參加的線上說明會場次<i>*</i><em>可複選</em></legend>
+        <div class="sessions" data-sessions><p class="field-note">場次載入中…</p></div>
+        <p class="field-error">請至少勾選一個場次</p>
+      </fieldset>
+
+      <fieldset>
+        <legend><span>04</span>其他</legend>
+        <label class="field full">
+          <span>想先問的問題<em>選填</em></span>
+          <textarea name="想先問的問題" rows="4" placeholder="例如：目前用哪些工具、想先看哪一段流程"></textarea>
+        </label>
+        <label class="option consent">
+          <input type="checkbox" name="個資同意" required>
+          <span data-copy="consent">我同意星河裂變蒐集以上資料，用於說明會通知與後續聯繫<i>*</i></span>
+        </label>
+      </fieldset>
+
+      <div class="form-submit">
+        <button class="btn promo" type="submit" data-copy="submit">送出報名</button>
+        <p class="form-status" data-status role="alert"></p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>© 星河裂變</p>
+  </div>
+</footer>
+
+<script src="../assets/booking.js"></script>
+</body>
+</html>
