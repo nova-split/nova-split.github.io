@@ -2,7 +2,7 @@
 
 // ▼▼▼ 之後只要改這兩行 ▼▼▼
 // 預約演示連結（預設為站內報名頁；場次與接收網址在 assets/booking.js 設定）
-const BOOKING_URL = "booking/index.html";
+const BOOKING_URL = document.body.dataset.bookingUrl || "booking/index.html";
 // 預購優惠截止時間（台灣時間，格式不要動，只改數字）
 const DEADLINE = "2026-10-31T23:59:59+08:00";
 // ▲▲▲ 之後只要改這兩行 ▲▲▲

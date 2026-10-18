@@ -19,9 +19,9 @@ const FALLBACK_SESSIONS = [
 
 const WEEK = "日一二三四五六";
 const LANDING = {
-  a: "../index.html",
-  b: "../index.html",
-  c: "../index.html",
+  a: "../stop-waiting-on-you/",
+  b: "../your-workday-back/",
+  c: "../flow-without-you/",
 };
 const LANDING_NAME = {
   a: "A｜我以為自己是老闆",
