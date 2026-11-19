@@ -8,6 +8,16 @@ repository: nova-split/nova-split.github.io
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-feed
+
+permalink: /blog/:title/
+
+defaults:
+  - scope: { path: "", type: posts }
+    values: { layout: post }
+
+# Publish posts dated later than build-server UTC (+0800 same-day posts)
+future: true
 
 kramdown:
   parse_block_html: true

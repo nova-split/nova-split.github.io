@@ -1,0 +1,15 @@
+---
+layout: blog
+title: Blog
+description: 星河裂變的文章與筆記。
+---
+<h1>Blog</h1>
+<p class="post-meta"><a href="{{ '/feed.xml' | relative_url }}">訂閱 RSS</a> · <a href="{{ '/blog/tags/' | relative_url }}">Tags</a></p>
+<ul class="post-list">
+{% for post in site.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}{% for tag in post.tags %} <span class="tag">{{ tag }}</span>{% endfor %}</span>
+  </li>
+{% endfor %}
+</ul>

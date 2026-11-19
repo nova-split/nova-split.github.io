@@ -5,6 +5,7 @@ gem "jekyll", "~> 4.3"
 group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
+  gem "jekyll-feed"
 end
 
 # Jekyll 4's default server; not bundled with Ruby 3.2+.

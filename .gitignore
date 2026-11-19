@@ -6,3 +6,10 @@ Gemfile.lock
 .tmp/
 .browser/
 .claude
+
+*.png
+*.jpg
+*.jpeg
+*.tiff
+*.zip
+*.7z

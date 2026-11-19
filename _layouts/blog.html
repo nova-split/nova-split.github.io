@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%- seo -%}
+{%- feed_meta -%}
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/blog.css' | relative_url }}">
+</head>
+<body class="blog-page">
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="{{ '/' | relative_url }}"><img src="{{ '/assets/logo.svg' | relative_url }}" alt="" width="36" height="34">星河<span>裂變</span></a>
+    <nav class="blog-nav">
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/blog/tags/' | relative_url }}">Tags</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </nav>
+  </div>
+</header>
+
+<main class="blog-main">
+  <div class="wrap narrow">
+    {{ content }}
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 星河裂變</p>
+  </div>
+</footer>
+</body>
+</html>

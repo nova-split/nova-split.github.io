@@ -1,0 +1,16 @@
+---
+layout: blog
+---
+<article class="post">
+  <header class="post-head">
+    <h1>{{ page.title }}</h1>
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
+      {% for tag in page.tags %}<a class="tag" href="{{ '/blog/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+    </p>
+  </header>
+  <div class="post-body">
+    {{ content }}
+  </div>
+  <p class="post-back"><a href="{{ '/blog/' | relative_url }}">← 所有文章</a></p>
+</article>
