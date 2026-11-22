@@ -1,16 +1,85 @@
 ---
 layout: blog
 ---
-<article class="post">
-  <header class="post-head">
-    <h1>{{ page.title }}</h1>
-    <p class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
-      {% for tag in page.tags %}<a class="tag" href="{{ '/blog/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
-    </p>
-  </header>
-  <div class="post-body">
-    {{ content }}
+{%- assign cat = page.categories.first | default: page.tags.first -%}
+{%- assign words = content | strip_html | strip_newlines | size -%}
+{%- assign mins = words | divided_by: 400 | at_least: 1 -%}
+<main class="wrap">
+  <p class="crumbs"><a href="{{ '/blog/' | relative_url }}">部落格</a>{% if cat %} ／ <a href="{{ '/blog/tags/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>{% endif %}</p>
+
+  <article class="post">
+    <header class="post-head">
+      {%- if cat %}<a class="cat" href="{{ '/blog/tags/' | relative_url }}#{{ cat | slugify }}">{{ cat }}</a>{% endif %}
+      <h1>{{ page.title }}</h1>
+      {%- if page.description %}
+      <p class="summary">{{ page.description }}</p>
+      {%- endif %}
+      <div class="author">
+        <span class="avatar"><img src="{{ '/assets/logo.svg' | relative_url }}" alt=""></span>
+        <span><b>{{ page.author | default: "星河裂變團隊" }}</b><br>
+          <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time> 發布{% if page.last_modified_at %}・{{ page.last_modified_at | date: "%Y-%m-%d" }} 更新{% endif %}・約 {{ mins }} 分鐘閱讀</span>
+      </div>
+    </header>
+
+    {%- if page.image %}
+    <figure class="post-cover"><img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}"></figure>
+    {%- endif %}
+
+    <div class="post-layout">
+      <div>
+        <div class="prose post-body">
+          {{ content }}
+        </div>
+
+        {%- if page.tags.size > 0 %}
+        <div class="tags">
+          {%- for tag in page.tags %}<a class="tag" href="{{ '/blog/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% endfor %}
+        </div>
+        {%- endif %}
+
+        <div class="post-cta">
+          <div>
+            <h2>{{ page.cta_title | default: "一個月要交 40 篇文章，還要顧 SEO？" }}</h2>
+            <p>{{ page.cta_text | default: "星河裂變幫你把品牌研究、AI 產文、排程和交付接成一條流程。帶一個客戶來，試做一次就知道" }}</p>
+          </div>
+          <a class="btn" data-booking href="{{ '/booking/' | relative_url }}">預約演示 →</a>
+        </div>
+      </div>
+
+      <aside class="toc" hidden>
+        <b>本篇目錄</b>
+        <ol></ol>
+        <div class="side-cta">
+          <p>讓 AI 依品牌資料產出 SEO 文章初稿</p>
+          <a class="btn" data-booking href="{{ '/booking/' | relative_url }}">預約演示</a>
+        </div>
+      </aside>
+    </div>
+  </article>
+</main>
+
+{%- comment -%} 相關文章：先找有相同標籤的文章，不夠 3 篇再用最新文章補 {%- endcomment -%}
+{%- assign related = "" | split: "" -%}
+{%- for post in site.posts -%}
+  {%- if post.url == page.url -%}{%- continue -%}{%- endif -%}
+  {%- assign shared = false -%}
+  {%- for t in post.tags -%}{%- if page.tags contains t -%}{%- assign shared = true -%}{%- endif -%}{%- endfor -%}
+  {%- if shared -%}{%- assign related = related | push: post -%}{%- endif -%}
+{%- endfor -%}
+{%- for post in site.posts -%}
+  {%- if related.size >= 3 -%}{%- break -%}{%- endif -%}
+  {%- if post.url == page.url or related contains post -%}{%- continue -%}{%- endif -%}
+  {%- assign related = related | push: post -%}
+{%- endfor -%}
+{%- if related.size > 0 %}
+<section class="related">
+  <div class="wrap">
+    <h2>你可能也想看</h2>
+    <div class="posts">
+      {%- for post in related limit: 3 %}
+      {% include post-card.html post=post %}
+      {%- endfor %}
+    </div>
   </div>
-  <p class="post-back"><a href="{{ '/blog/' | relative_url }}">← 所有文章</a></p>
-</article>
+</section>
+{%- endif %}

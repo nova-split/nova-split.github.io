@@ -1,15 +1,47 @@
 ---
 layout: blog
-title: Blog
-description: 星河裂變的文章與筆記。
+title: 部落格｜社群代操的內容營運筆記
+description: 給同時管多個品牌的社群代操：SEO、AI 產文、內容排程與交付流程的實戰筆記。
 ---
-<h1>Blog</h1>
-<p class="post-meta"><a href="{{ '/feed.xml' | relative_url }}">訂閱 RSS</a> · <a href="{{ '/blog/tags/' | relative_url }}">Tags</a></p>
-<ul class="post-list">
-{% for post in site.posts %}
-  <li>
-    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-    <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}{% for tag in post.tags %} <span class="tag">{{ tag }}</span>{% endfor %}</span>
-  </li>
-{% endfor %}
-</ul>
+<section class="blog-hero">
+  <div class="wrap">
+    <span class="eyebrow">星河裂變部落格</span>
+    <h1>社群代操的<span class="hl">內容營運筆記</span></h1>
+    <p class="lead">一個人管好多個品牌，靠的不是加班，是流程。這裡分享 SEO、AI 產文、內容排程和交付的實戰做法</p>
+    {%- assign cats = "" | split: "" -%}
+    {%- for post in site.posts -%}
+      {%- assign c = post.categories.first | default: post.tags.first -%}
+      {%- if c -%}{%- assign cats = cats | push: c -%}{%- endif -%}
+    {%- endfor -%}
+    {%- assign cats = cats | uniq -%}
+    {%- if cats.size > 1 %}
+    <div class="filters">
+      <button class="chip on" data-cat="all">全部</button>
+      {%- for c in cats %}
+      <button class="chip" data-cat="{{ c | slugify }}">{{ c }}</button>
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="list">
+  <div class="wrap">
+    {%- for post in site.posts limit: 1 %}
+    {% include post-card.html post=post featured=true %}
+    {%- endfor %}
+    <div class="posts">
+      {%- for post in site.posts offset: 1 %}
+      {% include post-card.html post=post %}
+      {%- endfor %}
+    </div>
+
+    <div class="post-cta">
+      <div>
+        <h2>想看看流程怎麼幫你接手這些事？</h2>
+        <p>帶一個客戶的真實需求來，用你自己的品牌試做一次</p>
+      </div>
+      <a class="btn" data-booking href="{{ '/booking/' | relative_url }}">預約演示 →</a>
+    </div>
+  </div>
+</section>

@@ -1,3 +1,6 @@
+---
+# 有這段 front matter，Jekyll 才會套用 _includes/header.html（本頁不使用版型）
+---
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
@@ -12,12 +15,7 @@
 <body data-variant="a">
 
 <!-- ===== 導覽列（共用） ===== -->
-<header class="nav">
-  <div class="wrap">
-    <a class="logo" href="#top"><img src="assets/logo.svg" alt="" width="36" height="34">星河<span>裂變</span></a>
-    <a class="btn" data-booking href="#">預約演示</a>
-  </div>
-</header>
+{% include header.html current="home" %}
 
 <!-- ===== [變體 A] Hero ===== -->
 <section class="hero" id="top">

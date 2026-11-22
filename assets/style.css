@@ -96,6 +96,11 @@ h3 { font-size: 21px; font-weight: 700; }
 .logo span { color: var(--accent); }
 .logo img { height: 36px; width: auto; flex-shrink: 0; margin-right: 10px; }
 .nav .btn { padding: 9px 22px; font-size: 15px; }
+/* 完整導覽列（首頁、部落格；_includes/header.html） */
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a:not(.btn) { text-decoration: none; color: var(--ink-2); font-size: 16px; font-weight: 500; }
+.nav-links a:not(.btn):hover, .nav-links a.on { color: var(--accent); }
+@media (max-width: 640px) { .nav-links { gap: 16px; } .nav-links a.hide-sm { display: none; } }
 
 /* Hero */
 .hero { padding: 96px 0 72px; text-align: center; background: #fff; }

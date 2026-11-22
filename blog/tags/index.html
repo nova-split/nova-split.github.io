@@ -1,14 +1,32 @@
 ---
 layout: blog
-title: Tags
+title: 標籤｜星河裂變部落格
+description: 依標籤瀏覽星河裂變部落格的所有文章。
 ---
-<h1>Tags</h1>
-{% assign tags = site.tags | sort %}
-{% for tag in tags %}
-<h2 id="{{ tag[0] | slugify }}">{{ tag[0] }} <span class="post-meta">({{ tag[1].size }})</span></h2>
-<ul class="post-list">
-  {% for post in tag[1] %}
-  <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <span class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</span></li>
-  {% endfor %}
-</ul>
-{% endfor %}
+<section class="blog-hero">
+  <div class="wrap">
+    <span class="eyebrow">星河裂變部落格</span>
+    <h1>依標籤瀏覽</h1>
+    {%- assign tags = site.tags | sort %}
+    <div class="filters">
+      {%- for tag in tags %}
+      <a class="chip" href="#{{ tag[0] | slugify }}">{{ tag[0] }}（{{ tag[1].size }}）</a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="list">
+  <div class="wrap">
+    {%- for tag in tags %}
+    <div class="tag-group" id="{{ tag[0] | slugify }}">
+      <h2>{{ tag[0] }}</h2>
+      <div class="posts">
+        {%- for post in tag[1] %}
+        {% include post-card.html post=post %}
+        {%- endfor %}
+      </div>
+    </div>
+    {%- endfor %}
+  </div>
+</section>
