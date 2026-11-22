@@ -9,29 +9,36 @@
 <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/blog.css' | relative_url }}">
 </head>
-<body class="blog-page">
+<body class="blog-page" data-variant="blog" data-booking-url="{{ '/booking/index.html' | relative_url }}">
 
-<header class="nav">
+{% include header.html current="blog" %}
+
+{{ content }}
+
+<footer class="blog-footer">
   <div class="wrap">
-    <a class="logo" href="{{ '/' | relative_url }}"><img src="{{ '/assets/logo.svg' | relative_url }}" alt="" width="36" height="34">星河<span>裂變</span></a>
-    <nav class="blog-nav">
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/blog/tags/' | relative_url }}">Tags</a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
-    </nav>
-  </div>
-</header>
-
-<main class="blog-main">
-  <div class="wrap narrow">
-    {{ content }}
-  </div>
-</main>
-
-<footer>
-  <div class="wrap">
-    <p>© 星河裂變</p>
+    <div class="cols">
+      <div>
+        <a class="logo" href="{{ '/' | relative_url }}"><img src="{{ '/assets/logo.svg' | relative_url }}" alt="" width="36" height="34">星河<span>裂變</span></a>
+        <p>{{ site.description }}</p>
+      </div>
+      <div>
+        <b>產品</b>
+        <a href="{{ '/' | relative_url }}">產品介紹</a>
+        <a data-booking href="{{ '/booking/' | relative_url }}">預約演示</a>
+      </div>
+      <div>
+        <b>部落格</b>
+        <a href="{{ '/blog/' | relative_url }}">所有文章</a>
+        <a href="{{ '/blog/tags/' | relative_url }}">標籤</a>
+        <a href="{{ '/feed.xml' | relative_url }}">RSS 訂閱</a>
+      </div>
+    </div>
+    <p class="copy">© 星河裂變</p>
   </div>
 </footer>
+
+<script src="{{ '/assets/main.js' | relative_url }}"></script>
+<script src="{{ '/assets/blog.js' | relative_url }}"></script>
 </body>
 </html>

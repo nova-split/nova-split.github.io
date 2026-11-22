@@ -57,6 +57,22 @@ tags at `/blog/tags/`, RSS at `/feed.xml`.
    <img src="{{ site.baseurl }}/blob/<topic>/YYYY-MM-DD-slug.webp" width="450" alt="describe the image">
    ```
 
+   Optional front matter (all fields can be omitted):
+
+   ```yaml
+   description: "一兩句摘要，約 80 字內"   # 列表卡片摘要、文章頁副標、搜尋結果與分享預覽
+   category: SEO                           # 卡片和麵包屑上的分類；沒寫就用第一個 tag
+   image: /blob/<topic>/YYYY-MM-DD-slug-cover.webp   # 封面圖（16:9）；也會當分享預覽圖
+   image_alt: "封面圖描述"
+   cover_text: "短標語"                    # 沒有封面圖時，色塊上顯示的字；沒寫就顯示分類
+   author: 星河裂變團隊                    # 預設就是這個
+   last_modified_at: 2026-12-01            # 有更新時填，文章頁會顯示更新日期
+   cta_title: "文末 CTA 標題"              # 不寫就用預設文案
+   cta_text: "文末 CTA 說明"
+   ```
+
+   The table of contents is generated automatically from `##` headings (3 or more).
+
 2. Put images under `blob/<topic>/` and reference them as shown above.
 3. Preview with `bundle exec jekyll serve`, then commit and push to `main`.
 
