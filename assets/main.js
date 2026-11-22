@@ -13,7 +13,6 @@ const DEADLINE = "2026-10-31T23:59:59+08:00";
 const variant = document.body.dataset.variant || "";
 const POSITIONS = [
   [".nav", "導覽列"], [".hero", "首屏"], [".path", "方案區"], [".final", "頁尾"], [".sticky-cta", "手機浮動按鈕"],
-  [".toc", "側欄"], [".post-cta", "文末"], [".blog-footer", "頁尾"],
 ];
 const pageParams = new URLSearchParams(location.search);
 let ref = "";

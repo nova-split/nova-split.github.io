@@ -22,13 +22,11 @@ const LANDING = {
   a: "../stop-waiting-on-you/",
   b: "../your-workday-back/",
   c: "../flow-without-you/",
-  blog: "../blog/",
 };
 const LANDING_NAME = {
   a: "A｜我以為自己是老闆",
   b: "B｜你有多久沒在上班時間做自己的工作",
   c: "C｜你缺的不是人手而是不用經過你的流程",
-  blog: "部落格",
 };
 const PICKED_KEY = "booking-picked";
 const params = new URLSearchParams(location.search);
