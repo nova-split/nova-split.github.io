@@ -21,7 +21,7 @@
   display: grid; grid-template-columns: 1.25fr 1fr; gap: 40px; align-items: center;
   text-decoration: none; margin-bottom: 56px;
 }
-.featured .cover { aspect-ratio: 16 / 10; }
+.featured .cover { aspect-ratio: 16 / 9; }
 .featured h2 { font-size: clamp(24px, 3vw, 32px); margin: 10px 0 14px; }
 .featured .excerpt { -webkit-line-clamp: 4; }
 .posts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 24px; }
@@ -61,7 +61,7 @@
 }
 .author .avatar img { width: 24px; height: auto; }
 .author b { color: var(--ink); font-weight: 700; }
-.post-cover { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 21 / 9; margin-bottom: 56px; }
+.post-cover { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 16 / 9; margin-bottom: 56px; }
 .post-cover img { width: 100%; height: 100%; object-fit: cover; }
 
 .post-layout { display: grid; grid-template-columns: minmax(0, var(--text-max)) 280px; gap: 64px; justify-content: space-between; }

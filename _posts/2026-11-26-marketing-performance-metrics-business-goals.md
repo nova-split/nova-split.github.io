@@ -4,6 +4,8 @@ title: "曝光十萬客戶還是不滿意？用行銷成效指標對齊商業目
 date: 2026-11-26 10:00:00 +0800
 tags: [行銷成效指標, 社群成效 KPI, 月報]
 category: 內容行銷
+image: /blob/marketing-metrics/2026-11-26-marketing-performance-metrics-cover.webp
+image_alt: "月度成效報告示意：曝光、進站、詢問、成交四層指標，搭配指標層級、比較基準、口徑與權限三個落差"
 description: "曝光十萬卻換不到客戶滿意，問題常在指標層級、比較基準與口徑權限。本文用行銷成效指標拆出三個可檢查的落差，附月報四段寫法與簽核清單，帶你檢查社群成效 KPI 有沒有連回營收與來客。"
 ---
 
